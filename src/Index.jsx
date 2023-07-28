@@ -122,8 +122,11 @@ const Index = () => {
   }, [alarmList]);
 
   //to change light mode and dark mode
-  const [mode, setMode] = useState(getModeStatus());
   const [bgcolor, setBgColor] = useState("rgb(206, 242, 255)");
+  const [mode, setMode] = useState(getModeStatus());
+  setBgColor("Black");
+  setMode(DarkMode);
+
   function modeHandler() {
     if (mode === DarkMode) {
       setBgColor("rgb(206, 242, 255)");
@@ -135,9 +138,6 @@ const Index = () => {
       setTimeout(() => {
         setMode(DarkMode);
       }, 500);
-    } else {
-      setBgColor("Black");
-      setMode(DarkMode);
     }
   }
 
