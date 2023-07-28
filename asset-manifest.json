@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/Multi-Medicine-Alarm/static/css/main.8c62c9ee.css",
+    "main.js": "/Multi-Medicine-Alarm/static/js/main.cee95f55.js",
+    "static/js/787.28cb0dcd.chunk.js": "/Multi-Medicine-Alarm/static/js/787.28cb0dcd.chunk.js",
+    "static/media/LightBanner.png": "/Multi-Medicine-Alarm/static/media/LightBanner.00459ad2558d9964f92d.png",
+    "static/media/DarkBanner.png": "/Multi-Medicine-Alarm/static/media/DarkBanner.e74ae79d78635410c5a2.png",
+    "static/media/ring.mp3": "/Multi-Medicine-Alarm/static/media/ring.1abfb05b82b68e787e31.mp3",
+    "static/media/toggleClick.mp3": "/Multi-Medicine-Alarm/static/media/toggleClick.7f139b396a1194e8727a.mp3",
+    "index.html": "/Multi-Medicine-Alarm/index.html",
+    "main.8c62c9ee.css.map": "/Multi-Medicine-Alarm/static/css/main.8c62c9ee.css.map",
+    "main.cee95f55.js.map": "/Multi-Medicine-Alarm/static/js/main.cee95f55.js.map",
+    "787.28cb0dcd.chunk.js.map": "/Multi-Medicine-Alarm/static/js/787.28cb0dcd.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.8c62c9ee.css",
+    "static/js/main.cee95f55.js"
+  ]
+}
