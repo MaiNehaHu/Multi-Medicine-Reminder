@@ -1,0 +1,116 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#App {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+  display: flex;
+  justify-content: center;
+
+  background: url("./Images/DarkBanner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#msg {
+  text-align: center;
+  padding: 5px 35px;
+  margin: 5px 0px;
+  font-family: "Acme", sans-serif;
+  font-size: larger;
+  color: red;
+  border-radius: var(--rem);
+  background-color: white;
+}
+#container {
+  width: 50vw;
+  min-height: 100vh;
+  height: fit-content;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  backdrop-filter: blur(30px);
+  color: black;
+  
+  border-top: 0.1px solid white;
+  border-bottom: 0.1px solid white;
+}
+#Alarms {
+  width: 100%;
+  height: 100%;
+
+  padding: 5% 0%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.hide {
+  opacity: 0;
+  display: none;
+  animation: Hide 0.5s ease;
+}
+@keyframes Hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+.show {
+  opacity: 1;
+  display: flex;
+  animation: Show 0.5s ease;
+}
+@keyframes Show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  #container {
+    width: 80vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  #msg {
+    width: 100%;
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 350px) {
+  #msg {
+    font-size: small;
+  }
+}
+
+/*scrollbar*/
+::-webkit-scrollbar {
+  height: 15px;
+  width: 15px;
+  background-color: black;
+}
+::-webkit-scrollbar-track {
+  border-radius: 0.5rem;
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 0.5rem;
+  background-color: rgb(70, 70, 70);
+  border-style: none;
+}
