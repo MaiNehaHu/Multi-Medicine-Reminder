@@ -1,14 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 
+import DarkMode from "./Images/DarkBanner.png";
+import LightMode from "./Images/LightBanner.png";
+
 import SetButton from "./Components/SetAlarmButton/SetButton";
 import Clock from "./Components/DigiClock/Clock";
 import MultiAlarm from "./Components/MultipleAlarms/MultiAlarm";
 import useSelectHook from "./hooks/useSelectHook";
 import DropDownOptions from "./Components/DropDowns/DropDownOptions";
 import Input from "./Components/Input/Input";
+import DarkLightMode from "./Components/DarkOrLightMode/DarkLightMode";
 
 const LS_Alarm_Key = "AlarmsList";
+const LS_Key_for_mode = "dark-light";
 
 function getAlarmsList() {
   let list = localStorage.getItem(LS_Alarm_Key);
@@ -18,6 +23,17 @@ function getAlarmsList() {
     return [];
   }
 }
+const getModeStatus = () => {
+  let modeStatus = localStorage.getItem(LS_Key_for_mode);
+  /**With the help of keyname we are getting the mode Status */
+
+  if (modeStatus) {
+    return JSON.parse(localStorage.getItem(LS_Key_for_mode));
+    /**localStorage.setItems("key", "value")*/
+  } else {
+    return [];
+  }
+};
 
 const Index = () => {
   const [hour, setHour] = useSelectHook("Hour");
@@ -105,9 +121,39 @@ const Index = () => {
      */
   }, [alarmList]);
 
+  //to change light mode and dark mode
+  const [mode, setMode] = useState(getModeStatus());
+  const [bgcolor, setBgColor] = useState("rgb(206, 242, 255)");
+  function modeHandler() {
+    if (mode === DarkMode) {
+      setBgColor("rgb(206, 242, 255)");
+      setTimeout(() => {
+        setMode(LightMode);
+      }, 500);
+    } else {
+      setBgColor("Black");
+      setTimeout(() => {
+        setMode(DarkMode);
+      }, 500);
+    }
+  }
+
+  document.querySelector("body").style.background = `url(${mode})`;
+  document.querySelector("body").style.backgroundColor = `${bgcolor}`;
+  document.querySelector("body").style.backgroundSize = "cover";
+  document.querySelector("body").style.backgroundPosition = "center";
+
+  //get mode from Local Storage
+  useEffect(() => {
+    localStorage.setItem(LS_Key_for_mode, JSON.stringify(mode));
+  }, [mode]);
+
   return (
     <div id="App">
       <div id="container">
+        {/**Dark and light mode */}
+        <DarkLightMode onClickHandler={modeHandler} modeStatus={mode} />
+
         {/**Clock */}
         <Clock />
 

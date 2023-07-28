@@ -1,0 +1,28 @@
+/**Dark mode light mode*/
+#dark-light-mode-toggler {
+  height: 50px;
+  width: 100px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.toggle-button-toggler {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  height: 30%;
+  border-radius: calc(5 * var(--rem));
+  background-color: rgb(0, 0, 150);
+}
+#toggle-circle-toggler {
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  background-color: white;
+
+  transition: all 1s ease;
+}
+
