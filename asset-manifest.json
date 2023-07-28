@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Multi-Medicine-Reminder/static/css/main.a880fbf4.css",
-    "main.js": "/Multi-Medicine-Reminder/static/js/main.0a527869.js",
+    "main.js": "/Multi-Medicine-Reminder/static/js/main.ef67f11d.js",
     "static/js/787.28cb0dcd.chunk.js": "/Multi-Medicine-Reminder/static/js/787.28cb0dcd.chunk.js",
     "static/media/LightBanner.png": "/Multi-Medicine-Reminder/static/media/LightBanner.00459ad2558d9964f92d.png",
     "static/media/DarkBanner.png": "/Multi-Medicine-Reminder/static/media/DarkBanner.e74ae79d78635410c5a2.png",
@@ -9,11 +9,11 @@
     "static/media/toggleClick.mp3": "/Multi-Medicine-Reminder/static/media/toggleClick.7f139b396a1194e8727a.mp3",
     "index.html": "/Multi-Medicine-Reminder/index.html",
     "main.a880fbf4.css.map": "/Multi-Medicine-Reminder/static/css/main.a880fbf4.css.map",
-    "main.0a527869.js.map": "/Multi-Medicine-Reminder/static/js/main.0a527869.js.map",
+    "main.ef67f11d.js.map": "/Multi-Medicine-Reminder/static/js/main.ef67f11d.js.map",
     "787.28cb0dcd.chunk.js.map": "/Multi-Medicine-Reminder/static/js/787.28cb0dcd.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a880fbf4.css",
-    "static/js/main.0a527869.js"
+    "static/js/main.ef67f11d.js"
   ]
 }
