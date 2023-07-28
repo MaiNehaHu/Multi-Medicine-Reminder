@@ -124,8 +124,10 @@ const Index = () => {
   //to change light mode and dark mode
   const [bgcolor, setBgColor] = useState("rgb(206, 242, 255)");
   const [mode, setMode] = useState(getModeStatus());
-  setBgColor("Black");
-  setMode(DarkMode);
+  useEffect(() => {
+    setBgColor("Black");
+    setMode(DarkMode);
+  },[]);
 
   function modeHandler() {
     if (mode === DarkMode) {

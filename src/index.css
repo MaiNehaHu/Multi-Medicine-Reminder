@@ -5,6 +5,10 @@
 }
 
 body {
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  
   background: url("./Images/LightBanner.png");
   background-size: cover;
   background-position: center;
