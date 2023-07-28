@@ -8,7 +8,7 @@ const PopUpAlarm = ({ style, pauseAlarm, time, name }) => {
         <div className="ringing-alarm-container">
           <p id="ringing-med-name">{name}</p>
           <p id="ringing-time">{time}</p>
-          <button onClick={pauseAlarm}>Stop</button>
+          <button onClick={pauseAlarm}>Stop💊</button>
         </div>
       </div>
     </React.Fragment>

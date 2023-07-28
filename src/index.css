@@ -9,7 +9,7 @@ body {
   height: 100vh;
   height: 100dvh;
   
-  background: url("./Images/LightBanner.png");
+  background: url("./Images/DarkBanner.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

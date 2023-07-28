@@ -122,31 +122,25 @@ const Index = () => {
   }, [alarmList]);
 
   //to change light mode and dark mode
-  const [bgcolor, setBgColor] = useState("rgb(206, 242, 255)");
+  const [bgcolor, setBgColor] = useState(getModeStatus());
   const [mode, setMode] = useState(getModeStatus());
-  useEffect(() => {
-    setBgColor("Black");
-    setMode(DarkMode);
-  },[]);
 
   function modeHandler() {
-    if (mode === DarkMode) {
-      setBgColor("rgb(206, 242, 255)");
-      setTimeout(() => {
-        setMode(LightMode);
-      }, 500);
-    } else if (mode === LightMode) {
+    if (mode === LightMode) {
       setBgColor("Black");
       setTimeout(() => {
         setMode(DarkMode);
       }, 500);
+    } else if (mode === DarkMode) {
+      setBgColor("rgb(206, 242, 255)");
+      setTimeout(() => {
+        setMode(LightMode);
+      }, 500);
+    } else {
+      setBgColor("rgb(206, 242, 255)");
+      setMode(LightMode);
     }
   }
-
-  document.querySelector("body").style.background = `url(${mode})`;
-  document.querySelector("body").style.backgroundColor = `${bgcolor}`;
-  document.querySelector("body").style.backgroundSize = "cover";
-  document.querySelector("body").style.backgroundPosition = "center";
 
   //get mode from Local Storage
   useEffect(() => {
@@ -154,7 +148,15 @@ const Index = () => {
   }, [mode]);
 
   return (
-    <div id="App">
+    <div
+      id="App"
+      style={{
+        background: `url(${mode})`,
+        backgroundColor: `${bgcolor}`,
+        backgroundPosition: "center",
+        backgroundSize: "cover",
+      }}
+    >
       <div id="container">
         {/**Dark and light mode */}
         <DarkLightMode onClickHandler={modeHandler} modeStatus={mode} />
