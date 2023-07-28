@@ -130,11 +130,14 @@ const Index = () => {
       setTimeout(() => {
         setMode(LightMode);
       }, 500);
-    } else {
+    } else if (mode === LightMode) {
       setBgColor("Black");
       setTimeout(() => {
         setMode(DarkMode);
       }, 500);
+    } else {
+      setBgColor("Black");
+      setMode(DarkMode);
     }
   }
 
