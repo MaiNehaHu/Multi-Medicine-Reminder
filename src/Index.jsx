@@ -66,8 +66,8 @@ const Index = () => {
 
       inputNameValue = inputNameValue === "" ? "Medicine Name" : inputNameValue;
       inputNameValue =
-        inputNameValue.length > 12
-          ? inputNameValue.slice(0, 12).concat("...")
+        inputNameValue.length > 15
+          ? inputNameValue.slice(0, 15).concat("...")
           : inputNameValue;
 
       let key = Random();
