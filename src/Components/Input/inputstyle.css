@@ -1,17 +1,24 @@
 #name-input {
   width: 100%;
-  padding: 0px 40px;
-  height: 40px;
+  width: 350px;
+  padding: 10px 10px;
   font-weight: bold;
-  font-family: "Merienda", cursive;
   font-size: large;
-  border-radius: 1rem;
+  
+  border-radius: 10px;
+  font-family: "Merienda", cursive;
   background-color: rgb(255, 223, 223);
 }
+
+@media screen and (max-width: 500px) {
+  #name-input {
+    width: 250px;
+    padding: 5px 10px;
+  }
+}
+
 @media screen and (max-width: 350px) {
   #name-input {
-    padding: 0px 60px;
     font-size: small;
-    height: 30px;
   }
 }

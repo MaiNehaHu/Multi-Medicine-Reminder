@@ -1,14 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 
-import DarkMode from "./Images/DarkBanner.png";
-import LightMode from "./Images/LightBanner.png";
-
 import SetButton from "./Components/SetAlarmButton/SetButton";
-import Clock from "./Components/DigiClock/Clock";
+import DigiClock from "./Components/DigiClock/DigiClock";
 import MultiAlarm from "./Components/MultipleAlarms/MultiAlarm";
 import useSelectHook from "./hooks/useSelectHook";
-import DropDownOptions from "./Components/DropDowns/DropDownOptions";
+import DropDowns from "./Components/DropDowns/DropDowns";
 import Input from "./Components/Input/Input";
 import DarkLightMode from "./Components/DarkOrLightMode/DarkLightMode";
 
@@ -23,6 +20,7 @@ function getAlarmsList() {
     return [];
   }
 }
+
 const getModeStatus = () => {
   let modeStatus = localStorage.getItem(LS_Key_for_mode);
   /**With the help of keyname we are getting the mode Status */
@@ -40,8 +38,10 @@ const Index = () => {
   const [minutes, setMinutes] = useSelectHook("Minutes");
   const [amPmOption, setAmPmOption] = useSelectHook("Am-Pm");
   const [alarmList, setAlarmList] = useState(getAlarmsList());
-
-  const [hide, setHide] = useState(false);
+  //to change light mode and dark mode
+  const [bgcolor, setBgColor] = useState(getModeStatus());
+  const white = "rgb(255, 255, 255)";
+  const black = "rgb(0, 0, 0)";
 
   let inputName = useRef();
 
@@ -66,8 +66,8 @@ const Index = () => {
 
       inputNameValue = inputNameValue === "" ? "Medicine Name" : inputNameValue;
       inputNameValue =
-        inputNameValue.length > 20
-          ? inputNameValue.slice(0, 20).concat("...")
+        inputNameValue.length > 12
+          ? inputNameValue.slice(0, 12).concat("...")
           : inputNameValue;
 
       let key = Random();
@@ -87,23 +87,22 @@ const Index = () => {
     }
   }
 
+  //deleting the clicked alarm from list
   function deleteAlarm(indexNum) {
-    setHide(true);
-
     let newList = [...alarmList];
     let filteredList = newList.filter((alarm) => alarm.index !== indexNum);
 
     setTimeout(() => {
       setAlarmList(filteredList);
       console.log("deleted");
-      setHide(false);
     }, 500);
   }
 
-  function switchOnOrOff(id) {
+  //Setting alarm as ON and OFF
+  function switchOnOrOff(clickAlarmId) {
     setAlarmList((prevAlarmList) =>
       prevAlarmList.map((alarm) =>
-        alarm.index === id
+        alarm.index === clickAlarmId
           ? {
               ...alarm,
               isOff: !alarm.isOff,
@@ -114,81 +113,65 @@ const Index = () => {
     localStorage.setItem(LS_Alarm_Key, JSON.stringify(alarmList));
   }
 
-  useEffect(() => {
-    localStorage.setItem(LS_Alarm_Key, JSON.stringify(alarmList));
-    /**localStorage.setItems("key", "value")
-     * "value" is stringify bcz Local Storage stores strings only
-     */
-  }, [alarmList]);
-
-  //to change light mode and dark mode
-  const [bgcolor, setBgColor] = useState(getModeStatus());
-  const [mode, setMode] = useState(getModeStatus());
-
   function modeHandler() {
-    if (mode === LightMode) {
-      setBgColor("Black");
-      setTimeout(() => {
-        setMode(DarkMode);
-      }, 500);
-    } else if (mode === DarkMode) {
-      setBgColor("rgb(206, 242, 255)");
-      setTimeout(() => {
-        setMode(LightMode);
-      }, 500);
+    if (bgcolor === white) {
+      setBgColor(black);
+    } else if (bgcolor === black) {
+      setBgColor(white);
     } else {
-      setBgColor("rgb(206, 242, 255)");
-      setMode(LightMode);
+      setBgColor(black);
     }
   }
 
-  //get mode from Local Storage
   useEffect(() => {
-    localStorage.setItem(LS_Key_for_mode, JSON.stringify(mode));
-  }, [mode]);
+    //set mode to Local Storage
+    localStorage.setItem(LS_Key_for_mode, JSON.stringify(bgcolor));
+  }, [bgcolor]);
+
+  useEffect(() => {
+    //Storing in Local Storage
+    localStorage.setItem(LS_Alarm_Key, JSON.stringify(alarmList));
+  }, [alarmList]);
 
   return (
     <div
       id="App"
       style={{
-        background: `url(${mode})`,
         backgroundColor: `${bgcolor}`,
-        backgroundPosition: "center",
-        backgroundSize: "cover",
       }}
     >
-      <div id="container">
-        {/**Dark and light mode */}
-        <DarkLightMode onClickHandler={modeHandler} modeStatus={mode} />
+      <div id="setAlarmContainer">
+        {/** Digital Clock */}
+        <DigiClock />
 
-        {/**Clock */}
-        <Clock />
+        {/** Dark and light mode */}
+        <DarkLightMode onClickHandler={modeHandler} modeStatus={bgcolor} />
 
-        {/**Message */}
+        {/** Message */}
         <p id="msg">Hi, Set you medicine alarm💊</p>
 
-        {/**DropDown */}
-        <DropDownOptions
+        {/** DropDown */}
+        <DropDowns
           setHour={setHour}
           setMinutes={setMinutes}
           setAmPmOption={setAmPmOption}
         />
 
-        {/**Input field */}
+        {/** Input field */}
         <Input inputName={inputName} />
 
-        {/**Set Button */}
+        {/** Set Button */}
         <SetButton setAlarm={setAlarm} />
+      </div>
 
-        {/**List of alarms */}
-        <div id="Alarms" className={hide === true ? "hide" : "show"}>
-          <MultiAlarm
-            list={alarmList}
-            deleteAlarm={deleteAlarm}
-            switchOnOrOff={switchOnOrOff}
-            hide={hide}
-          />
-        </div>
+      <div className="alarmsList">
+        {/** List of all alarms */}
+        <MultiAlarm
+          list={alarmList}
+          deleteAlarm={deleteAlarm}
+          switchOnOrOff={switchOnOrOff}
+          modeStatus={bgcolor}
+        />
       </div>
     </div>
   );

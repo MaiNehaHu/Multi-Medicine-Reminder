@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import "./clock.css";
+import "./DigiClock.css";
 
-const Clock = () => {
+const DigiClock = () => {
   const [hourDigital, setHourDigital] = useState("");
   const [minutesDigital, setMinutesDigital] = useState("");
   const [secsDigital, setSecsDigital] = useState("");
@@ -31,14 +31,14 @@ const Clock = () => {
       setAmPm(ampm);
     }, 1000);
   }, []);
-  
+
   return (
     <React.Fragment>
       <div className="current-time">
-        {`${hourDigital}:${minutesDigital}:${secsDigital} ${amPm}`}
+        <h1>{`${hourDigital}:${minutesDigital}:${secsDigital} ${amPm}`}</h1>
       </div>
     </React.Fragment>
   );
 };
 
-export default Clock;
+export default DigiClock;

@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import LightMode from "../../Images/LightBanner.png";
-import "./mode.css";
+import "./DarkLightMode.css";
 
 const DarkLightMode = ({ onClickHandler, modeStatus }) => {
   const [circlePosi, setCirclePosi] = useState(false);
+  const white = "rgb(255, 255, 255)";
 
   useEffect(() => {
-    if (modeStatus === LightMode) {
+    if (modeStatus === white) {
       setCirclePosi(false);
     } else {
       setCirclePosi(true);
@@ -23,7 +23,7 @@ const DarkLightMode = ({ onClickHandler, modeStatus }) => {
         <div
           id="toggle-circle-toggler"
           style={{
-            background: circlePosi ? "Black" : "White",
+            background: circlePosi ? "Black" : white,
             transform: circlePosi ? "translateX(0)" : "translateX(200%)",
           }}
           onClick={() => {

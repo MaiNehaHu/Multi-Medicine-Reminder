@@ -1,31 +1,23 @@
 button {
-  font-size: larger;
-  width: 80%;
-  margin: 20px 0px;
-  padding: 12px;
+  width: 350px;
+  padding: 10px;
   cursor: pointer;
-  font-weight: 900;
   color: white;
-
+  font-size: larger;
+  border-radius: 10px;
+  background-color: blue;
   font-family: "Acme", sans-serif;
-  border-radius: var(--rem);
-  background-color: black;
 }
 
 @media screen and (max-width: 500px) {
   button {
-    width: 100%;
-
+    width: 80vw;
     font-size: medium;
-    font-weight: 200;
   }
 }
 
 @media screen and (max-width: 350px) {
   button {
     padding: 5px 0px;
-    margin: 10px 0px;
-    font-size: x-large;
-    font-weight: 200;
   }
 }

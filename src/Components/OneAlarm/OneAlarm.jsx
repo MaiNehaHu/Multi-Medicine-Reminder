@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import "./alarm.css";
+import "./OneAlarm.css";
 import Sound from "../../Audio/ring.mp3";
 import Toggle from "../../Audio/toggleClick.mp3";
 const Ring = new Audio(Sound);
@@ -7,15 +7,14 @@ const ToggleAudio = new Audio(Toggle);
 
 import PopUpAlarm from "../PopUpAlarm/PopUpAlarm";
 
-const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
+const OneAlarm = ({ alarm, deleteAlarm, switchOnOrOff, colorMode }) => {
   const [hour, setHour] = useState("");
   const [minutes, setMinutes] = useState("");
   const [secs, setSecs] = useState("");
   const [amPm, setAmPm] = useState("");
-  //For current time
-
   const [alarmRing, setAlarmRing] = useState("none");
-
+  //For current time
+  const white = "rgb(255, 255, 255)";
   let isOff = alarm.isOff;
   let alarmTiming = alarm.alarmTime;
   //from list
@@ -45,7 +44,7 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
     }, 1000);
 
     // Return cleanup function to clear the interval
-    //when the component is unmounted
+    // When the component is unmounted
     return () => {
       clearInterval(intervalId);
     };
@@ -63,7 +62,6 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
         Ring.play();
         Ring.loop = true;
       }
-
     }
   }, [alarmTiming, hour, minutes, secs, amPm]);
 
@@ -73,18 +71,25 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
     Ring.pause();
   }
 
-  /**toggle the alarm ON and OFF */
+  /**Toggle the alarm ON and OFF */
   function toggleButtonPosition() {
     isOff = isOff == false ? false : true;
   }
 
+  let AlarmStyle = {
+    background: colorMode === white ? "white" : "black",
+    color: colorMode === white ? "black" : white,
+    border: colorMode === white ? "2.4px solid black" : "2px solid white",
+  };
+
   return (
     <React.Fragment>
-      <div className="one-alarm" key={alarm.index} id={alarm.index}>
+      <div className="one-alarm" style={AlarmStyle}>
         <div className="name-time">
           <section id="med-name">{alarm.medName}</section>
           <section id="alarm-time">{alarm.alarmTime}</section>
         </div>
+
         <section id="on-off-toggle">
           <div id="toggle-button">
             <div
@@ -101,6 +106,7 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
             ></div>
           </div>
         </section>
+
         <section
           id="bin"
           onClick={() => {
@@ -110,6 +116,7 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
           <i className="fa fa-trash-o"></i>
         </section>
       </div>
+
       <PopUpAlarm
         style={alarmRing}
         time={alarmTiming}
@@ -120,4 +127,4 @@ const Alarm = ({ alarm, deleteAlarm, switchOnOrOff }) => {
   );
 };
 
-export default Alarm;
+export default OneAlarm;

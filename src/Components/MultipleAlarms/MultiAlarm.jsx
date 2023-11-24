@@ -1,15 +1,16 @@
 import React from "react";
-import "./alarms.css";
-import Alarm from "../OneAlarm/Alarm";
+import "./MultiAlarm.css";
+import OneAlarm from "../OneAlarm/OneAlarm";
 
-const MultiAlarm = ({ list, deleteAlarm, switchOnOrOff }) => {
+const MultiAlarm = ({ list, deleteAlarm, switchOnOrOff, modeStatus }) => {
   return list.map((alarm, i) => {
     return (
-      <Alarm
+      <OneAlarm
         key={i}
         alarm={alarm}
         deleteAlarm={deleteAlarm}
         switchOnOrOff={switchOnOrOff}
+        colorMode={modeStatus}
       />
     );
   });

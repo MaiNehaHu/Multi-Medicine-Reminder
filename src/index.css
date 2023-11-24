@@ -4,57 +4,42 @@
   box-sizing: border-box;
 }
 
-body {
-  width: 100vw;
-  height: 100vh;
-  height: 100dvh;
-  
-  background: url("./Images/DarkBanner.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 #App {
   width: 100vw;
   height: 100vh;
   height: 100dvh;
   overflow-x: hidden;
-  overflow-y: scroll;
 
-  display: flex;
+  gap: 10px;
+  display: grid;
   justify-content: center;
+  grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+  font-family: "Acme", sans-serif;
+  background-color: black;
 }
 
-#msg {
-  text-align: center;
-  padding: 5px 35px;
-  margin: 5px 0px;
-  font-family: "Acme", sans-serif;
-  font-size: larger;
-  color: red;
-  border-radius: var(--rem);
-  background-color: white;
-}
-#container {
-  width: 50vw;
-  min-height: 100vh;
-  height: fit-content;
+#setAlarmContainer,
+.alarmsList {
+  width: 100%;
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: flex-start;
-
-  backdrop-filter: blur(30px);
-  color: black;
-
-  border-top: 0.1px solid white;
-  border-bottom: 0.1px solid white;
 }
+
+#setAlarmContainer {
+  gap: 20px;
+  padding: 50px 20px;
+}
+
+.alarmsList {
+  padding: 50px 7vw;
+  gap: 20px;
+}
+
 #Alarms {
   width: 100%;
   height: 100%;
-
   padding: 5% 0%;
   display: flex;
   flex-direction: column;
@@ -75,41 +60,30 @@ body {
     opacity: 0;
   }
 }
-.show {
-  opacity: 1;
-  display: flex;
-  animation: Show 0.5s ease;
+
+#msg {
+  font-size: x-large;
+  color: red;
 }
-@keyframes Show {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+
+@media screen and (max-width: 910px) {
+  .alarmsList {
+    padding: 10px 10vw;
   }
 }
 
-@media screen and (max-width: 800px) {
-  #container {
-    width: 80vw;
-  }
-}
 @media screen and (max-width: 500px) {
   #msg {
-    width: 100%;
     font-size: medium;
   }
-}
-@media screen and (max-width: 350px) {
-  #msg {
-    font-size: small;
+  #setAlarmContainer {
+    padding: 40px 20px 10px 20px;
   }
 }
 
 /*scrollbar*/
 ::-webkit-scrollbar {
-  height: 15px;
-  width: 15px;
+  width: 5px;
   background-color: black;
 }
 ::-webkit-scrollbar-track {
@@ -117,6 +91,6 @@ body {
 }
 ::-webkit-scrollbar-thumb {
   border-radius: 0.5rem;
-  background-color: rgb(70, 70, 70);
+  background-color: rgb(167, 167, 167);
   border-style: none;
 }

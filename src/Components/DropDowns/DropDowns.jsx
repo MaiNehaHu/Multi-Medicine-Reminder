@@ -1,7 +1,7 @@
 import React from "react";
-import "./options.css";
+import "./DropDowns.css";
 
-const DropDownOptions = ({ setHour, setMinutes, setAmPmOption }) => {
+const DropDowns = ({ setHour, setMinutes, setAmPmOption }) => {
   function fixNumber(value) {
     value = value.map((hour) => {
       hour = hour < 10 ? `0${hour}` : hour;
@@ -50,4 +50,4 @@ const DropDownOptions = ({ setHour, setMinutes, setAmPmOption }) => {
   );
 };
 
-export default DropDownOptions;
+export default DropDowns;

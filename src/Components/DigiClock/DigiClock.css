@@ -1,0 +1,12 @@
+:root {
+  --rem: 1rem;
+}
+
+.current-time {
+  width: 100%;
+  color: blue;
+  user-select: none;
+  cursor: default;
+  text-align: center;
+  font-size: calc(1.5 * var(--rem));
+}

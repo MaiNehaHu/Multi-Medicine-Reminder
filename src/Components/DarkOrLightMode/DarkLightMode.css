@@ -7,14 +7,16 @@
   align-items: center;
   justify-content: center;
 }
+
 .toggle-button-toggler {
   display: flex;
   align-items: center;
   width: 80%;
   height: 30%;
   border-radius: calc(5 * var(--rem));
-  background-color: rgb(0, 0, 150);
+  background-color: blue;
 }
+
 #toggle-circle-toggler {
   cursor: pointer;
   width: 30px;
@@ -25,4 +27,3 @@
 
   transition: all 1s ease;
 }
-

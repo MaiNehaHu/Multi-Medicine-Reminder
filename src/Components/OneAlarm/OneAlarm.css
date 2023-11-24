@@ -1,0 +1,118 @@
+.one-alarm {
+  width: 100%;
+  gap: 10px;
+  min-height: 70px;
+  padding-inline: 20px;
+  border-radius: 1rem;
+  border: 1px solid white;
+
+  color: white;
+  font-size: larger;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Acme", sans-serif;
+}
+
+/*Bin 10%**/
+/*Name and time 70%**/
+/*Toggler 20%*/
+
+.name-time {
+  width: 70%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: space-between;
+}
+
+#alarm-time,
+#med-name {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+#med-name {
+  word-break: break-all;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+
+#bin {
+  width: 10%;
+  height: 100%;
+
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.fa-trash-o {
+  padding: 25% 5%;
+  font-size: larger;
+}
+#bin:hover {
+  color: red;
+}
+
+#on-off-toggle {
+  max-width: 51px;
+  min-width: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#toggle-button {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-radius: calc(5 * var(--rem));
+  background-color: blue;
+}
+
+#toggle-circle {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  border: 2px solid gray;
+  background-color: white;
+
+  transition: all 0.5s ease;
+}
+@media screen and (max-width: 500px) {
+  .one-alarm {
+    color: white;
+    font-size: medium;
+    width: 85vw;
+    min-height: 80px;
+    padding-inline: 15px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+  #on-off-toggle {
+    max-width: 36px;
+    min-width: 35px;
+  }
+
+  #toggle-circle {
+    width: 18px;
+    height: 18px;
+    border: 1px solid gray;
+  }
+
+  .fa-trash-o {
+    font-size: smaller;
+  }
+}
