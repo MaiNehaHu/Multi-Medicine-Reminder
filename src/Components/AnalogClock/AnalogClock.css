@@ -5,6 +5,7 @@
   padding: 2rem;
   border-radius: 50%;
   border: 5px solid white;
+  background-color: black;
   box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefee,
     inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
 }
