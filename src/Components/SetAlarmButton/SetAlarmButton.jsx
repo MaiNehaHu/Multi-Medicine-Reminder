@@ -1,7 +1,7 @@
 import React from "react";
-import "./button.css";
+import "./SetAlarmButton.css";
 
-const SetButton = ({ setAlarm }) => {
+const SetAlarmButton = ({ setAlarm }) => {
   return (
     <React.Fragment>
       <button onClick={setAlarm} className={"setAlarm-btn"}>
@@ -11,4 +11,4 @@ const SetButton = ({ setAlarm }) => {
   );
 };
 
-export default SetButton;
+export default SetAlarmButton;

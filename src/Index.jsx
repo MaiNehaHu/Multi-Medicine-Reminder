@@ -1,13 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./index.css";
 
-import SetButton from "./Components/SetAlarmButton/SetButton";
+import SetAlarmButton from "./Components/SetAlarmButton/SetAlarmButton";
 import DigiClock from "./Components/DigiClock/DigiClock";
 import MultiAlarm from "./Components/MultipleAlarms/MultiAlarm";
 import useSelectHook from "./hooks/useSelectHook";
 import DropDowns from "./Components/DropDowns/DropDowns";
 import Input from "./Components/Input/Input";
 import DarkLightMode from "./Components/DarkOrLightMode/DarkLightMode";
+import AnalogClock from "./Components/AnalogClock/AnalogClock";
 
 const LS_Alarm_Key = "AlarmsList";
 const LS_Key_for_mode = "dark-light";
@@ -140,7 +141,10 @@ const Index = () => {
         backgroundColor: `${bgcolor}`,
       }}
     >
-      <div id="setAlarmContainer">
+      <div className="setAlarmContainer">
+        {/** Anallog Clock */}
+        <AnalogClock />
+
         {/** Digital Clock */}
         <DigiClock />
 
@@ -148,9 +152,9 @@ const Index = () => {
         <DarkLightMode onClickHandler={modeHandler} modeStatus={bgcolor} />
 
         {/** Message */}
-        <p id="msg">Hi, Set you medicine alarm💊</p>
+        <p className="message">Hi, Set your medicine alarm💊</p>
 
-        {/** DropDown */}
+        {/** DropDown for time */}
         <DropDowns
           setHour={setHour}
           setMinutes={setMinutes}
@@ -161,10 +165,10 @@ const Index = () => {
         <Input inputName={inputName} />
 
         {/** Set Button */}
-        <SetButton setAlarm={setAlarm} />
+        <SetAlarmButton setAlarm={setAlarm} />
       </div>
 
-      <div className="alarmsList">
+      <div className="alarmsListContainer">
         {/** List of all alarms */}
         <MultiAlarm
           list={alarmList}

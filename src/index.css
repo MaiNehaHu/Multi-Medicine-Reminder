@@ -8,6 +8,7 @@
   width: 100vw;
   height: 100vh;
   height: 100dvh;
+  color: white;
   overflow-x: hidden;
 
   gap: 10px;
@@ -18,8 +19,8 @@
   background-color: black;
 }
 
-#setAlarmContainer,
-.alarmsList {
+.setAlarmContainer,
+.alarmsListContainer {
   width: 100%;
   display: flex;
   align-items: center;
@@ -27,12 +28,12 @@
   justify-content: flex-start;
 }
 
-#setAlarmContainer {
+.setAlarmContainer {
   gap: 20px;
   padding: 50px 20px;
 }
 
-.alarmsList {
+.alarmsListContainer {
   padding: 50px 7vw;
   gap: 20px;
 }
@@ -47,39 +48,26 @@
   justify-content: center;
 }
 
-.hide {
-  opacity: 0;
-  display: none;
-  animation: Hide 0.5s ease;
-}
-@keyframes Hide {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-#msg {
+.message {
   font-size: x-large;
   color: red;
 }
 
 @media screen and (max-width: 910px) {
-  .alarmsList {
+  .alarmsListContainer {
     padding: 10px 10vw;
   }
 }
 
 @media screen and (max-width: 500px) {
-  #msg {
+  .message {
     font-size: medium;
   }
-  #setAlarmContainer {
-    padding: 40px 20px 10px 20px;
+  .setAlarmContainer {
+    padding: 20px 20px 10px 20px;
   }
 }
+
 
 /*scrollbar*/
 ::-webkit-scrollbar {

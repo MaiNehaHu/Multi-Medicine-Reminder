@@ -1,5 +1,4 @@
 import React from "react";
-import "./MultiAlarm.css";
 import OneAlarm from "../OneAlarm/OneAlarm";
 
 const MultiAlarm = ({ list, deleteAlarm, switchOnOrOff, modeStatus }) => {

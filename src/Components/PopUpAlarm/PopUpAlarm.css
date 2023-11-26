@@ -1,50 +1,42 @@
 #RinginAlarm {
   position: absolute;
   top: 0;
+  left: 0;
+  color: white;
 
   width: 100vw;
   height: 100%;
   z-index: 100;
 
-  background-color: rgb(132, 0, 255);
+  background-color: rgb(2, 0, 140);
+  font-family: "Acme", sans-serif;
 }
 
-.ringing-alarm-container{
+.ringing-alarm-container {
   width: 100%;
+  height: 100vh;
+  height: 100dvh;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
   flex-direction: column;
-  padding: 10% 0%;
+  justify-content: space-evenly;
 }
 
 #RinginAlarm > div > button {
-  width: 50%;
+  width: 50vw;
 }
 
 #ringing-med-name {
   text-align: center;
   font-weight: 500;
   font-size: xx-large;
-
-  font-family: "Acme", sans-serif;
 }
 
 #ringing-time {
-  font-weight: bold;
-  font-size: larger;
-  font-family: "Monoton", cursive;
+  font-size: xx-large;
 }
 
-@media screen and (max-width: 250px) {
-  #ringing-med-name {
-    font-size: x-large;
-  }
-
-  #ringing-time {
-    font-size: medium;
-  }
-  
+@media screen and (max-width: 350px) {
   #RinginAlarm > div > button {
     margin: 5px 0px;
   }

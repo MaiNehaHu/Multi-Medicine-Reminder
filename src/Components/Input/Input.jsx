@@ -1,5 +1,5 @@
 import React from "react";
-import "./inputstyle.css";
+import "./Input.css";
 
 const Input = ({ inputName }) => {
  
@@ -11,7 +11,7 @@ const Input = ({ inputName }) => {
           type="search"
           placeholder="Type Medicine Name..."
           name="medicine-name"
-          id="name-input"
+          id="medicineNameInput"
         />
       </div>
     </React.Fragment>

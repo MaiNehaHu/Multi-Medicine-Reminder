@@ -1,0 +1,82 @@
+.analogClock {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  padding: 2rem;
+  border-radius: 50%;
+  border: 5px solid white;
+  box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefee,
+    inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.analog {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-3px);
+}
+.hand {
+  height: 2px;
+  width: 50%;
+
+  position: absolute;
+  top: 50%;
+
+  transform-origin: 100%; /* so that it'll rotate from last point*/
+  transform: rotate(90deg);
+  transition: all;
+  transition-timing-function: linear;
+}
+.hour-hand {
+  width: 30%; /** 30% of the clock face*/
+  height: 10px;
+  transform: rotate(0deg);
+  background: red;
+  box-shadow: 0px 0px 10px red;
+  border-radius: 2rem;
+  position: relative;
+  top: 49%;
+  left: 20%;
+}
+.min-hand {
+  width: 40%;
+  height: 7px;
+  transform: rotate(0deg);
+  background: blue;
+  box-shadow: 0px 0px 10px blue;
+  border-radius: 2rem;
+  position: relative;
+  top: 42%;
+  left: 9%;
+}
+.sec-hand {
+  width: 50%;
+  height: 3px;
+  transform: rotate(0deg);
+  background: yellow;
+  box-shadow: 0px 0px 10px yellow;
+  border-radius: 2rem;
+}
+
+.center {
+  background: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  top: 32%;
+  left: 41%;
+}
+
+@media screen and (max-width: 350px) {
+  .analogClock {
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    border: 3px solid white;
+  }
+  .center {
+    top: 30%;
+    left: 41%;
+  }
+}

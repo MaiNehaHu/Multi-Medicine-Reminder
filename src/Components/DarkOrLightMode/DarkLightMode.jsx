@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./DarkLightMode.css";
+import Toggle from '../../Audio/toggleClick.mp3'
+const ToggleAudio = new Audio(Toggle);
 
 const DarkLightMode = ({ onClickHandler, modeStatus }) => {
   const [circlePosi, setCirclePosi] = useState(false);
@@ -29,6 +31,7 @@ const DarkLightMode = ({ onClickHandler, modeStatus }) => {
           onClick={() => {
             toggleMode();
             onClickHandler();
+            ToggleAudio.play();
           }}
         ></div>
       </div>
