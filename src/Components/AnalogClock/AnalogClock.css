@@ -5,6 +5,7 @@
   padding: 2rem;
   border-radius: 50%;
   border: 5px solid white;
+  background-color: blue;
   box-shadow: 0 0 0px 4px rgba(0, 0, 0, 0.1), inset 0 0 0 3px #efefee,
     inset 0 0 10px black, 0 0 10px rgba(0, 0, 0, 0.2);
 }
@@ -42,8 +43,8 @@
   width: 40%;
   height: 7px;
   transform: rotate(0deg);
-  background: blue;
-  box-shadow: 0px 0px 10px blue;
+  background: chartreuse;
+  box-shadow: 0px 0px 10px chartreuse;
   border-radius: 2rem;
   position: relative;
   top: 42%;
