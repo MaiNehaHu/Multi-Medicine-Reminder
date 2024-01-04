@@ -29,7 +29,7 @@
 }
 
 .setAlarmContainer {
-  gap: 20px;
+  justify-content: space-evenly;
   padding: 50px 20px;
 }
 
